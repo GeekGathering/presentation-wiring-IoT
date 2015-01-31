@@ -6,26 +6,63 @@ html
     title Wiring the Internet of Things
 
     link(rel='stylesheet', type='text/css', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css')
+    link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css')
     link(rel='stylesheet', type='text/css', href='build/build.css')
     
-  body
+  body(ng-app="WiringIoT")
 
     article
 
-      section
-        h1 <i class="fa fa-cloud fa-lg"></i> <i class="fa fa-plug fa-rotate-45 blue"></i> <i class="fa fa-umbrella"></i> <i class="fa fa-car"></i> <i class="fa fa-lightbulb-o"></i> <i class="fa fa-bicycle"></i> ...
+      section 
+        h1 <i class="fa fa-cloud fa-lg bt-blue"></i> 
+          <i class="fa fa-plug fa-rotate-45 bt-blue"></i> 
+          <i class="fa fa-umbrella"></i> 
+          <i class="fa fa-lightbulb-o"></i>
+          <i class="fa fa-car"></i> 
+          <i class="fa fa-home"></i> 
+          <i class="fa fa-paper-plane-o"></i>
+          <i class="fa fa-bicycle"></i>
         h1 Wiring the Internet of Things
-        
+        h3 Geek Gathering #7 February 2015
         
 
       section
-        h2 Keyboard Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
+        h1.really-more-mega 4&middot;<i class="mega-octicon really-more-mega octicon-organization"></i>
+        h3.really-more-mega <i class="fa fa-laptop"></i>  / <i class="mega-octicon really-more-mega octicon-organization"></i>
 
       section
-        h2 Touch Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
-
+        h1.really-more-mega <i class="fa fa-toggle-off"></i> <i class="fa fa-long-arrow-right"></i>  <i class="fa fa-toggle-on bt-green"></i>
+        table(ng-controller="OnViewController")
+          tr( ng-repeat="team in teams")
+            td <i class="mega-octicon octicon-organization"></i>   {{team.teamId}}
+            td
+              h1 <i class="fa" ng-class="team.on ? 'fa-toggle-on bt-green' : 'fa-toggle-off' "></i>
+            td 
+              h1(ng-show="team.on") <a href="" class="bulb-button" ng-click="bulbCicked(team.teamId)"> <i class="fa fa-lightbulb-o" ng-class="team.lightBulbColor"  ></i></a> 
+                
+            
+      section        
+        table(ng-controller="OnViewController")
+          tr
+            th <i class="octicon octicon-organization"></i>
+            th <i class="wi wi-thermometer"></i>
+            th <i class="wi wi-sprinkles"></i>
+            th <i class="fa fa-lightbulb-o"></i>
+            th <i class="fa fa-repeat"></i>
+            //- th <i class="fa fa-arrows"></i>
+            //- th <i class="fa fa-arrows"></i>
+            //- th <i class="fa fa-arrows"></i>
+          tr( ng-repeat="team in teams")
+            td {{team.teamId}}
+            td <just-gage ng-attr-id="{{ 'team-c-' + team.teamId }}" class="small-gage" value="team.Temperature" min="0" max="30" options="options"></just-gage>
+            td <just-gage ng-attr-id="{{ 'team-h-' + team.teamId }}" class="small-gage" value="team.Humidity" min="0" max="100" options="options"></just-gage>
+            td <just-gage ng-attr-id="{{ 'team-b-' + team.teamId }}" class="small-gage" value="team.Photo" min="0" max="1023" options="options"></just-gage>                  
+            td <just-gage ng-attr-id="{{ 'team-p-' + team.teamId }}" class="small-gage" value="team.Poti" min="0" max="1023" options="options"></just-gage>
+            //- td <just-gage ng-attr-id="{{ 'team-y-' + team.teamId }}" class="small-gage" value="team.Yaw" min="-180" max="180" options="options"></just-gage>
+            //- td <just-gage ng-attr-id="{{ 'team-pi-' + team.teamId }}" class="small-gage" value="team.Pitch" min="-180" max="180" options="options"></just-gage>
+            //- td <just-gage ng-attr-id="{{ 'team-ro-' + team.teamId }}" class="small-gage" value="team.Roll" min="-180" max="180" options="options"></just-gage>
+            
       section
         h2 Responsive Slides
         h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
