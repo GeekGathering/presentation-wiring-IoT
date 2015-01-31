@@ -1,29 +1,3 @@
-// Require Node modules in the browser thanks to Browserify: http://browserify.org
-var bespoke = require('bespoke'),
-  //cube = require('bespoke-theme-cube'),
-  voltaire = require('bespoke-theme-voltaire'),
-  keys = require('bespoke-keys'),
-  touch = require('bespoke-touch'),
-  bullets = require('bespoke-bullets'),
-  backdrop = require('bespoke-backdrop'),
-  scale = require('bespoke-scale'),
-  hash = require('bespoke-hash'),
-  progress = require('bespoke-progress'),
-  forms = require('bespoke-forms');
-
-// Bespoke.js
-bespoke.from('article', [
-  //cube(),
-  voltaire(),
-  keys(),
-  touch(),
-  bullets('li, .bullet'),
-  backdrop(),
-  scale(),
-  hash(),
-  progress(),
-  forms()
-]);
 
 
 // Prism syntax highlighting
@@ -88,7 +62,7 @@ function OnViewController($scope,mqtt){
       if(payload == '#000000') {
         $scope.teams[teamId].lightBulbColor = 'bt-white'
       } else {
-        $scope.teams[teamId].lightBulbColor = 'bt-yellow'  
+        $scope.teams[teamId].lightBulbColor = 'bt-yellow'
       }
 
     }
@@ -103,12 +77,12 @@ function OnViewController($scope,mqtt){
 
 app.factory('mqtt',['$rootScope',mqtt]);
 function mqtt($rootScope) {
-  var client = new Paho.MQTT.Client('ws://connect.shiftr.io:1884/', 'my-client-id');
+  var client = new Paho.MQTT.Client('ws://connect.shiftr.io:1884/', 'bespoke-presentation-thing-service');
   var callbacks = [];
 
   client.onConnectionLost = function(res) {
     if(res.errorCode !== 0) {
-      console.log('connection hase been lost');
+      console.log('thing service connection has been lost');
     }
   };
 
@@ -121,13 +95,13 @@ function mqtt($rootScope) {
     });
   };
 
-  console.log('connect ...');
+  console.log('thing service connect ...');
   client.connect({
     userName: '16692b673ab28c3e',
     password: '47a0d99f90d110930638e5be3e57e0a5',
     onSuccess: function() {
       client.subscribe("GG/Iot/#");
-      console.log('... connected');
+      console.log('... thing service connected');
     }
   });
 
@@ -147,3 +121,63 @@ function mqtt($rootScope) {
   }
 
 };
+
+var remote = function() {
+  return function(deck) {
+    var client = new Paho.MQTT.Client('ws://connect.shiftr.io:1884/', 'bespoke-presentation-slide-controller');
+
+    client.onConnectionLost = function(res) {
+      if(res.errorCode !== 0) {
+        console.log('slide controller connection has been lost');
+      }
+    };
+
+    client.onMessageArrived = function(message) {
+      var command = message.payloadString;
+      console.log('slide controller command is ' + command);
+      switch(command) {
+        case 'next' : deck.next(); break;
+        case 'prev' : deck.prev(); break;
+        default: console.log('Unknown command: ' + command + '.');
+      }
+    };
+
+    console.log('slide controller connect ...');
+    client.connect({
+      userName: 'bittailor',
+      password: 'GeekGathering',
+      onSuccess: function() {
+        client.subscribe("GG/SlideController/WiringIoT/Command");
+        console.log('... slide controller connected');
+      }
+    });
+  }
+};
+
+
+
+// Require Node modules in the browser thanks to Browserify: http://browserify.org
+var bespoke = require('bespoke'),
+voltaire = require('bespoke-theme-voltaire'),
+keys = require('bespoke-keys'),
+touch = require('bespoke-touch'),
+bullets = require('bespoke-bullets'),
+backdrop = require('bespoke-backdrop'),
+scale = require('bespoke-scale'),
+hash = require('bespoke-hash'),
+progress = require('bespoke-progress'),
+forms = require('bespoke-forms');
+
+// Bespoke.js
+bespoke.from('article', [
+voltaire(),
+keys(),
+touch(),
+bullets('li, .bullet'),
+backdrop(),
+scale(),
+hash(),
+progress(),
+forms(),
+remote()
+]);
