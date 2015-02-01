@@ -29,7 +29,7 @@ html
 
       section
         h1.really-more-mega 4&middot;<i class="mega-octicon really-more-mega octicon-organization"></i>
-        h3.really-more-mega <i class="fa fa-laptop"></i>  / <i class="mega-octicon really-more-mega octicon-organization"></i>
+        h3.really-more-mega  <img src="images/ShieldWhite.svg" width="120"></img> & <i class="fa fa-laptop"></i> / <i class="mega-octicon really-more-mega octicon-organization"></i>
 
       section
         h1.really-more-mega <i class="fa fa-toggle-off"></i> <i class="fa fa-long-arrow-right"></i>  <i class="fa fa-toggle-on bt-green"></i>
@@ -64,11 +64,26 @@ html
             //- td <just-gage ng-attr-id="{{ 'team-ro-' + team.teamId }}" class="small-gage" value="team.Roll" min="-180" max="180" options="options"></just-gage>
             
       section
-        img.bullet(src="images/mqttorg-glow.png" width="150px")
-        h2.bullet pub sub
-        h2.bullet topics and wildcarts
-        
-        
+        //- h1 <i class="fa fa-cog fa-spin-slow fa-5x"></i>
+        h1 <i class="fa fa-graduation-cap fa-5x"></i>
+      
+      section
+        img(src="images/mqttorg-glow.png" width="150px")
+        br
+        span
+          cite MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.
+          br
+          p.cite-ref
+            a(href='https://mqtt.org') mqtt.org
+            
+      section
+        h1 publish/subscribe messaging
+        p {-TODO-} 
+      
+      section
+        h1 topics
+        p {-TODO-}  
+          
       section
         h2.bullet <img src="images/remote-control-icon.png" width="100px"></img><img src="images/presentation.png" width="150px"></img> 
         pre.bullet
@@ -89,7 +104,7 @@ html
       section.node-red-text(data-bespoke-backdrop='node-red')
         p.bullet <i class="fa fa-plug fa-lg fa-rotate-225"></i><i class="fa fa-arrows-h fa-lg"></i><i class="fa fa-plug fa-lg fa-rotate-45"></i>
         h2.bullet <img src="images/node-red-screen.png" width="100%"></img>
-        a.bullet(class="link-button" href="http://bittailor.cloudapp.net/admin/" target="_blank") <i class="fa fa-long-arrow-right"></i> <i class="mega-octicon octicon-browser"></i>  
+        a.bullet(class="link-button" href="https://iotteam0.azurewebsites.net" target="_blank") <i class="fa fa-long-arrow-right"></i> <i class="mega-octicon octicon-browser"></i>  
 
       section.emphatic-text(data-bespoke-backdrop='emphatic')
         h1 <i class="fa fa-thumbs-o-up fa-5x"></i> <i class="fa fa-thumbs-o-up fa-5x"></i>
@@ -98,6 +113,21 @@ html
         h2.bullet <i class="wi wi-day-sunny fa-4x"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-umbrella fa-4x"></i>
         h2 &nbsp;
         h2.bullet <i class="wi wi-rain fa-4x"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-umbrella fa-4x bt-blue"></i>
+        br
+        a.bullet(class="link-button" href="https://iotteam0.azurewebsites.net" target="_blank") <i class="fa fa-long-arrow-right"></i> <i class="mega-octicon octicon-browser"></i>  
+
+      
+      section
+        h1.bullet <i class="mega-octicon more-mega octicon-organization"></i> <i class="fa fa-wrench fa-l"></i><img src="images/node-red-title-flow.png" height="80"></img>
+        br
+        table(ng-controller="OnViewController")
+          tr( ng-repeat="team in teams")
+            td 
+             h2 <i class="mega-octicon octicon-organization"></i>   {{team.teamId}}
+            td  &nbsp; 
+            td   
+              a(href="https://iotteam{{team.teamId}}.azurewebsites.net" target="_blank") https://iotteam{{team.teamId}}.azurewebsites.net
+          
       
       section
         h2 ...
