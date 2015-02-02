@@ -26,7 +26,10 @@ html
         h1 Wiring the Internet of Things
         h3 Geek Gathering #7 February 2015
         
-
+      section
+          h1 <i class="fa fa-calendar"></i> 
+          p After a short introduction into MQTT and Node-RED we will use an Arduino combined with an “IoT Shield” to prototype some IoT gadgets.
+          
       section
         h1.really-more-mega 4&middot;<i class="mega-octicon really-more-mega octicon-organization"></i>
         h3.really-more-mega  <img src="images/ShieldWhite.svg" width="120"></img> & <i class="fa fa-laptop"></i> / <i class="mega-octicon really-more-mega octicon-organization"></i>
@@ -40,7 +43,8 @@ html
               h1 <i class="fa" ng-class="team.on ? 'fa-toggle-on bt-green' : 'fa-toggle-off' "></i>
             td 
               h1(ng-show="team.on") <a href="" class="bulb-button" ng-click="bulbCicked(team.teamId)"> <i class="fa fa-lightbulb-o" ng-class="team.lightBulbColor"  ></i></a> 
-                
+        
+      
             
       section        
         table(ng-controller="OnViewController")
@@ -77,13 +81,84 @@ html
             a(href='https://mqtt.org') mqtt.org
             
       section
-        h1 publish/subscribe messaging
-        p {-TODO-} 
+        h2 publish/subscribe messaging
+        br
+        img(src="images/pub-sub-1.svg") 
       
       section
-        h1 topics
-        p {-TODO-}  
-          
+        h2 publish/subscribe messaging
+        br
+        img(src="images/pub-sub-2.svg") 
+      
+      
+      section
+        h2 publish/subscribe messaging
+        br
+        img(src="images/pub-sub-3.svg") 
+      
+      
+      section
+        h2 publish/subscribe messaging
+        br
+        img(src="images/pub-sub-4.svg") 
+      
+      section
+        h2.bullet topic
+        br
+        p.bullet key that identifies the information channel to which payload data is published
+        br
+        p.bullet hierarchy structure very much like the Filesystem Hierarchy 
+        br
+        pre.bullet.topic
+          code(class="small-code topic").
+            GG/Iot/1/Temperature
+            GG/Iot/1/Humidity
+            GG/Iot/1/Button/A  
+            GG/Iot/1/Button/B  
+            GG/Iot/2/Temperature
+            GG/Iot/2/Humidity
+            GG/Iot/2/Button/A 
+            GG/Iot/2/Button/B 
+            
+      section
+        h2.bullet.topic topic wildcards
+        br
+        table.topic
+          tr
+            th # 
+            th +
+          tr
+            td(width="200")
+              pre.bullet.topic
+                code(class="small-code topic").
+                  GG/Iot/1/#
+              br
+              pre.bullet.topic
+                code(class="small-code topic").
+                  <span class="bt-blue">GG/Iot/1/Temperature</span>
+                  <span class="bt-blue">GG/Iot/1/Humidity</span>
+                  <span class="bt-blue">GG/Iot/1/Button/A</span> 
+                  <span class="bt-blue">GG/Iot/1/Button/B</span> 
+                  <span class="bt-gray">GG/Iot/2/Temperature</span>
+                  <span class="bt-gray">GG/Iot/2/Humidity</span>
+                  <span class="bt-gray">GG/Iot/2/Button/A</span>
+                  <span class="bt-gray">GG/Iot/2/Button/B</span>
+            td(width="200")
+              pre.bullet.topic
+                code(class="small-code topic").
+                  GG/Iot/+/Temperature      
+              br
+              pre.bullet.topic
+                code(class="small-code topic").
+                  <span class="bt-blue">GG/Iot/1/Temperature</span>
+                  <span class="bt-gray">GG/Iot/1/Humidity</span>
+                  <span class="bt-gray">GG/Iot/1/Button/A</span> 
+                  <span class="bt-gray">GG/Iot/1/Button/B</span> 
+                  <span class="bt-blue">GG/Iot/2/Temperature</span>
+                  <span class="bt-gray">GG/Iot/2/Humidity</span>
+                  <span class="bt-gray">GG/Iot/2/Button/A</span> 
+                  <span class="bt-gray">GG/Iot/2/Button/B</span> 
+              
       section
         h2.bullet <img src="images/remote-control-icon.png" width="100px"></img><img src="images/presentation.png" width="150px"></img> 
         pre.bullet
