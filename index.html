@@ -26,6 +26,10 @@
         <h3>Geek Gathering #7 February 2015</h3>
       </section>
       <section>
+        <h1><i class="fa fa-calendar"></i> </h1>
+        <p>After a short introduction into MQTT and Node-RED we will use an Arduino combined with an “IoT Shield” to prototype some IoT gadgets.</p>
+      </section>
+      <section>
         <h1 class="really-more-mega">4&middot;<i class="mega-octicon really-more-mega octicon-organization"></i></h1>
         <h3 class="really-more-mega"> <img src="images/ShieldWhite.svg" width="120"></img> & <i class="fa fa-laptop"></i> / <i class="mega-octicon really-more-mega octicon-organization"></i></h3>
       </section>
@@ -68,12 +72,64 @@
           <cite>MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.</cite><br>
           <p class="cite-ref"><a href="https://mqtt.org">mqtt.org</a></p></span></section>
       <section>
-        <h1>publish/subscribe messaging</h1>
-        <p>{-TODO-} </p>
+        <h2>publish/subscribe messaging</h2><br><img src="images/pub-sub-1.svg">
       </section>
       <section>
-        <h1>topics</h1>
-        <p>{-TODO-}  </p>
+        <h2>publish/subscribe messaging</h2><br><img src="images/pub-sub-2.svg">
+      </section>
+      <section>
+        <h2>publish/subscribe messaging</h2><br><img src="images/pub-sub-3.svg">
+      </section>
+      <section>
+        <h2>publish/subscribe messaging</h2><br><img src="images/pub-sub-4.svg">
+      </section>
+      <section>
+        <h2 class="bullet">topic</h2><br>
+        <p class="bullet">key that identifies the information channel to which payload data is published</p><br>
+        <p class="bullet">hierarchy structure very much like the Filesystem Hierarchy </p><br>
+        <pre class="bullet topic"><code class="small-code topic">GG/Iot/1/Temperature
+GG/Iot/1/Humidity
+GG/Iot/1/Button/A  
+GG/Iot/1/Button/B  
+GG/Iot/2/Temperature
+GG/Iot/2/Humidity
+GG/Iot/2/Button/A 
+GG/Iot/2/Button/B 
+</code></pre>
+      </section>
+      <section>
+        <h2 class="bullet topic">topic wildcards</h2><br>
+        <table class="topic">
+          <tr>
+            <th># </th>
+            <th>+</th>
+          </tr>
+          <tr>
+            <td width="200">
+              <pre class="bullet topic"><code class="small-code topic">GG/Iot/1/#</code></pre><br>
+              <pre class="bullet topic"><code class="small-code topic"><span class="bt-blue">GG/Iot/1/Temperature</span>
+<span class="bt-blue">GG/Iot/1/Humidity</span>
+<span class="bt-blue">GG/Iot/1/Button/A</span> 
+<span class="bt-blue">GG/Iot/1/Button/B</span> 
+<span class="bt-gray">GG/Iot/2/Temperature</span>
+<span class="bt-gray">GG/Iot/2/Humidity</span>
+<span class="bt-gray">GG/Iot/2/Button/A</span>
+<span class="bt-gray">GG/Iot/2/Button/B</span></code></pre>
+            </td>
+            <td width="200">
+              <pre class="bullet topic"><code class="small-code topic">GG/Iot/+/Temperature      </code></pre><br>
+              <pre class="bullet topic"><code class="small-code topic"><span class="bt-blue">GG/Iot/1/Temperature</span>
+<span class="bt-gray">GG/Iot/1/Humidity</span>
+<span class="bt-gray">GG/Iot/1/Button/A</span> 
+<span class="bt-gray">GG/Iot/1/Button/B</span> 
+<span class="bt-blue">GG/Iot/2/Temperature</span>
+<span class="bt-gray">GG/Iot/2/Humidity</span>
+<span class="bt-gray">GG/Iot/2/Button/A</span> 
+<span class="bt-gray">GG/Iot/2/Button/B</span> 
+</code></pre>
+            </td>
+          </tr>
+        </table>
       </section>
       <section>
         <h2 class="bullet"><img src="images/remote-control-icon.png" width="100px"></img><img src="images/presentation.png" width="150px"></img> </h2>
