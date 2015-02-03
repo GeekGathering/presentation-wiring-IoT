@@ -173,7 +173,7 @@ bespoke.from('article', [
 voltaire(),
 keys(),
 touch(),
-bullets('li, .bullet'),
+bullets('.bullet'),
 backdrop(),
 scale(),
 hash(),
