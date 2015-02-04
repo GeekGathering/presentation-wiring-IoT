@@ -178,7 +178,31 @@ client.onMessageArrived = function(message) {
         </ul>
       </section>
       <section>
-        <h2>...</h2>
+        <h2 class="bullet">used hardware</h2><br>
+        <ul>
+          <li><b><a href="http://arduino.cc/en/pmwiki.php?n=Main/arduinoBoardUno">Arduino Uno</a></b> - base to build the geek gathering sensor nodes.</b>.</li>
+          <li><b><a href="http://www.raspberrypi.org/">Raspberry Pi</a></b></b> - used as MQTT-SN gateway to map from the MQTT-SN senor network to the MQTT LAN/WAN.</li>
+          <li><b><a href="https://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P/(language)/eng-GB">nRF24L01+</a></b></b> - the ultra low power 2.4GHz RF transceiver used for the sensor network.</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="bullet">used software</h2><br>
+        <ul>
+          <li><b><a href="http://nodered.org/">Node-RED</a></b> - visual tool for wiring the Internet of Things.</b>.</li>
+          <li><b><a href="https://eclipse.org/paho/clients/js/">Eclipse Paho JavaScript Client</a></b></b> - is a browser-based library that uses WebSockets to connect to a MQTT.</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="bullet">code @ <span class="mega-octicon octicon-mark-github"></span></h2><br>
+        <ul>
+          <li><b><a href="https://github.com/bittailor/GeekGatheringIoTShield">Geek Gathering IoT Shield</a></b> - Arduino Sketch and Eagle files for the PCB.</b>.</li>
+          <li><b><a href="https://github.com/bittailor/BtMqttSn">BtMqttSn</a></b></b> - Arduino library for an MQTT-SN client communicating over an nRF24L01+ transceiver.</li>
+          <li><b><a href="https://github.com/bittailor/BtEmbedded#btmqttsngateway">BtMqttSnGateway</a></b></b> - A MQTT-SN gateway running on a Raspberry Pi communicating over a nRF24L01+ transceiver.</li>
+          <li><b><a href="https://github.com/GeekGathering/presentation-wiring-IoT">This presentation</a></b></b> - and online @ <a href="http://geekgathering.github.io/presentation-wiring-IoT">http://geekgathering.github.io/presentation-wiring-IoT</a>.</li>
+        </ul>
+      </section>
+      <section>
+        <h2><span class="mega-octicon really-more-mega octicon-megaphone"></span></h2>
       </section>
     </article>
     <script src="build/build.js"></script>
